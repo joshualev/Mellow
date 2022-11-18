@@ -1,0 +1,41 @@
+@use "./utilities/variables.styles";
+
+.App {
+  min-height: 800px;
+
+  display: grid;
+  grid-template-columns: 240px 1fr 1fr 1fr 1fr;
+  grid-template-rows: 90px 0.8fr 4fr;
+  column-gap: 20px;
+
+  border-radius: 20px;
+  background-color: #ffffff;
+  box-shadow: variables.$box-shadow-1;
+
+  .top-navbar-container {
+    grid-column-start: 1;
+    grid-column-end: 6;
+
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+
+  .side-navbar-container {
+    grid-row-start: 2;
+    grid-row-end: 4;
+
+    border-bottom-left-radius: 20px;
+  }
+
+  .header-container {
+    grid-column-start: 2;
+    grid-column-end: 6;
+  }
+
+  .main-container {
+    grid-column-start: 2;
+    grid-column-end: 6;
+
+    border-bottom-right-radius: 20px;
+  }
+}

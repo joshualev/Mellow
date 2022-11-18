@@ -1,0 +1,111 @@
+@use "../../utilities/variables.styles";
+
+.side-navbar-container {
+  border-right: 1px solid variables.$border-color;
+  display: grid;
+  grid-template-rows: 1fr 1.5fr 0.5fr;
+  gap: 5px;
+
+  padding-left: 20px;
+  padding-right: 10px;
+
+  .navigation-container {
+    border-bottom: 1px solid #e7ebf2;
+    padding-bottom: 20px;
+    width: 95%;
+    margin-top: 15px;
+
+    div {
+      display: flex;
+      gap: 10px;
+
+      padding: 10px 0;
+      .nav-logo {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+
+  .workspace-container {
+    .workspace-title {
+      font-weight: 900;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+
+      display: flex;
+      justify-content: space-between;
+
+      .add-workspace-button {
+        margin-top: 20.5px;
+        margin-right: 40px;
+        width: 12.5px;
+        height: 12.5px;
+      }
+    }
+
+    .workspace-item-container {
+      display: flex;
+      align-items: center;
+
+      .workspace-item-circle {
+        width: 7.5px;
+        height: 7.5px;
+      }
+
+      h4 {
+        color: variables.$text-color-primary;
+        font-weight: 600;
+        padding-left: 10px;
+      }
+      .option-button {
+        display: flex;
+        flex-grow: 1;
+        color: variables.$text-color-primary;
+      }
+    }
+  }
+
+  .toggle-mode-container {
+    margin-top: 55px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.1em 0.1rem;
+    border-radius: 50px;
+
+    width: 91%;
+    height: 30px;
+
+    font-size: 0.95rem;
+
+    background-color: variables.$border-color;
+    box-shadow: variables.$box-shadow-1;
+
+    .dark-mode-container,
+    .light-mode-container {
+      display: flex;
+      align-items: center;
+      margin: 0 auto;
+      padding: 3.5px 8.5px;
+
+      height: 20px;
+      border-radius: 20px;
+      .dark-logo,
+      .light-logo {
+        width: 20px;
+        height: 20px;
+        margin-left: 5px;
+      }
+      span {
+        padding: 10.5px;
+      }
+    }
+    .selected {
+      background-color: variables.$bkg-color-2;
+      color: variables.$text-color-primary;
+      font-weight: 900;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+@use "../../../utilities/variables.styles";
+
+.board-container {
+  height: 100%;
+  border-bottom-right-radius: 20px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 10px;
+  grid-template-rows: 50px 1fr;
+  gap: 20px;
+
+  .title-container {
+    color: variables.$text-color-primary;
+    border-bottom: 3px solid variables.$workspace-color4;
+
+    align-items: center;
+
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .workspace-cards-container {
+    grid-row-start: 2;
+  }
+}
