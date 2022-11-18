@@ -1,15 +1,20 @@
 @use "../../../utilities/variables.styles";
 
+.board-container::-webkit-scrollbar {
+  display: none;
+}
+
 .board-container {
   max-height: 600px;
-  overflow-x: hidden;
+  overflow: scroll;
 
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 10px;
   grid-template-rows: 50px 1fr;
-  gap: 20px;
+  gap: 15px;
 
   padding-bottom: 10px;
+  padding-left: 10px;
   border-bottom-right-radius: 20px;
 
   .title-container {

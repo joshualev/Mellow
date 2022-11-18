@@ -16,8 +16,15 @@
     margin-top: 15px;
 
     div {
+      cursor: pointer;
       display: flex;
       gap: 10px;
+
+      transition: 0.1s;
+
+      &:hover {
+        color: variables.$workspace-color3;
+      }
 
       padding: 10px 0;
       .nav-logo {
@@ -38,10 +45,18 @@
       justify-content: space-between;
 
       .add-workspace-button {
+        cursor: pointer;
+
         margin-top: 20.5px;
         margin-right: 40px;
         width: 12.5px;
         height: 12.5px;
+        transition: 0.2s;
+
+        &:hover {
+          transform: scale(1.08);
+          color: variables.$workspace-color3;
+        }
       }
     }
 
@@ -55,19 +70,39 @@
       }
 
       h4 {
+        cursor: pointer;
+
         color: variables.$text-color-primary;
         font-weight: 600;
         padding-left: 10px;
+
+        transition: 0.1s;
+
+        &:hover {
+          transform: scale(1.02);
+          color: variables.$workspace-color3;
+        }
       }
       .option-button {
+        cursor: pointer;
+
         display: flex;
         flex-grow: 1;
         color: variables.$text-color-primary;
+
+        transition: 0.2s;
+
+        &:hover {
+          transform: scale(1.28);
+          color: variables.$workspace-color3;
+        }
       }
     }
   }
 
   .toggle-mode-container {
+    cursor: pointer;
+
     margin-top: 55px;
     display: flex;
     justify-content: space-between;
@@ -82,6 +117,11 @@
 
     background-color: variables.$border-color;
     box-shadow: variables.$box-shadow-1;
+
+    transition: 0.2s;
+    &:hover {
+      box-shadow: variables.$box-shadow-3;
+    }
 
     .dark-mode-container,
     .light-mode-container {

@@ -21,16 +21,16 @@ const TopNavBar = () => {
       </div>
 
       <div className="nav-link-container">
-        <div>
+        <div className="nav-item">
           <BsViewStacked className="navlink-logo" />
           <span>List</span>
         </div>
-        <div>
+        <div className="nav-item">
           <BsGrid1X2 className="navlink-logo" />
           <span>Board</span>
         </div>
 
-        <div>
+        <div className="nav-item">
           <BsCalendar className="navlink-logo" />
           <span>Calendar</span>
         </div>
