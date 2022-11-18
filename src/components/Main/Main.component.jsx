@@ -1,11 +1,11 @@
 import Board from "./Board/Board.component";
 
-const MainContent = () => {
+const Main = ({ cardData }) => {
   return (
     <div className="main-container">
-      <Board />
+      <Board cardData={cardData} />
     </div>
   );
 };
 
-export default MainContent;
+export default Main;

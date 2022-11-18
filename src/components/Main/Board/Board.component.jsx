@@ -2,13 +2,12 @@ import BoardSection from "../BoardSection/BoardSection.component";
 
 import "./Board.styles.scss";
 
-const Board = () => {
-  const titles = ["TODO", "IN PROGRESS", "COMPLETE", "QUESTIONS"];
-
+const Board = ({ cardData }) => {
+  cardData.sections.map((section) => console.log(section));
   return (
     <div className="board-container">
-      {titles.map((title) => (
-        <BoardSection key={title} title={title} />
+      {cardData.sections.map(({ id, name }) => (
+        <BoardSection cardData={cardData} key={id} title={name} />
       ))}
     </div>
   );
