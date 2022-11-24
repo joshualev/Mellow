@@ -3,26 +3,27 @@
 .card {
   display: grid;
   grid-template-rows: 1fr 40px;
-  max-width: 235px;
+
+  width: 100%;
+  min-width: 150px;
   min-height: 150px;
+
   margin: 20px 0;
 
   background-color: variables.$bkg-color-2;
   border: 1px solid variables.$border-color;
   border-radius: 6px;
-
   box-shadow: variables.$box-shadow-1;
-  transition: 0.25s ease-in-out;
+
+  transition: 0.25s ease-out;
 
   &:hover {
     cursor: pointer;
-    transform: rotate(1deg) translate(2px, -5px);
+    transform: rotate(0.1deg) translate(1px, -1px);
     box-shadow: variables.$box-shadow-3;
   }
 
   .upper-card {
-    grid-row-start: 1;
-
     padding-left: 10px;
 
     border-bottom: 1px solid variables.$border-color;
@@ -90,6 +91,32 @@
       &:hover {
         transform: scale(1.1);
         color: variables.$workspace-color3;
+      }
+    }
+  }
+}
+
+.current {
+  color: variables.$bkg-color-2;
+  text-shadow: none;
+  box-shadow: none;
+  border: 1px solid variables.$bkg-color-2;
+
+  &:hover {
+    transform: unset;
+    box-shadow: unset;
+  }
+
+  .upper-card {
+    border: none;
+    box-shadow: none;
+    .header {
+      color: variables.$bkg-color-2;
+    }
+    section {
+      .category {
+        background-color: variables.$bkg-color-2;
+        color: variables.$bkg-color-2;
       }
     }
   }

@@ -7,27 +7,12 @@
 .board-container {
   max-height: 600px;
   overflow: scroll;
-
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 10px;
-  grid-template-rows: 50px 1fr;
+  grid-template-rows: 1fr;
   gap: 15px;
 
   padding-bottom: 10px;
   padding-left: 10px;
   border-bottom-right-radius: 20px;
-
-  .title-container {
-    color: variables.$text-color-primary;
-    border-bottom: 3px solid variables.$workspace-color4;
-
-    align-items: center;
-
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .workspace-cards-container {
-    grid-row-start: 2;
-  }
 }

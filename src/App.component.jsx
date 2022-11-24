@@ -10,19 +10,25 @@ function App() {
   const [cardData, setCardData] = useState(null);
 
   useEffect(() => {
-    console.log("effect fired");
+    // console.log("effect fired");
 
     const boardData = async () => {
       try {
         const response = await fetch("http://localhost:5173/data.json");
         const data = await response.json();
-        setCardData(data);
+        setCardData(data.sections);
       } catch (e) {
         console.log("error", e.message);
       }
     };
 
     boardData();
+    // if (localStorage.getItem("List")) {
+    //   // console.log(localStorage.getItem("List"));
+    //   setCardData(JSON.parse(localStorage.getItem("List")));
+    // } else {
+    //   boardData();
+    // }
   }, []);
 
   return (

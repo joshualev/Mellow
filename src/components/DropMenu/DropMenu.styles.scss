@@ -1,0 +1,64 @@
+@use "../../utilities/variables.styles";
+
+.drop-menu-container {
+  z-index: 10;
+  position: relative;
+  transition: 200ms ease-out;
+
+  .option-button {
+    cursor: pointer;
+    transition: 300ms;
+
+    &:hover {
+      transform: scale(1.2);
+      color: variables.$workspace-color3;
+    }
+  }
+  .menu-item {
+    display: none;
+  }
+}
+
+.drop-menu-container.open {
+  .option-button {
+    color: variables.$color-primary;
+    transform: scale(2) rotate(90deg);
+  }
+  .menu-items-container {
+    position: absolute;
+    right: -5px;
+    width: 50px;
+
+    margin-top: 10px;
+    padding: 0 17.5px;
+
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 5px;
+    background-color: variables.$bkg-color-1;
+
+    .menu-item {
+      display: flex;
+      justify-content: center;
+
+      h5 {
+        cursor: pointer;
+
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-weight: 800;
+
+        color: variables.$text-color-secondary;
+
+        transition: 200ms;
+        &:hover {
+          color: variables.$color-primary;
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+}

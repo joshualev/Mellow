@@ -1,24 +1,19 @@
 @use "../../../utilities/variables.styles";
 
-.title-container {
-  color: variables.$text-color-primary;
-  border-bottom: 3px solid variables.$workspace-color4;
-
-  align-items: center;
-
-  display: flex;
-  justify-content: space-between;
-
-  .option-button {
-    transition: 0.2s;
-
-    &:hover {
-      transform: scale(1.28);
-      color: variables.$workspace-color3;
-    }
-  }
-}
-
-.workspace-cards-container {
+.section-container {
   grid-row-start: 2;
+
+  .title-container {
+    color: variables.$text-color-primary;
+    background-color: variables.$bkg-color-2;
+    border-bottom: 3px solid variables.$workspace-color4;
+
+    align-items: center;
+
+    display: flex;
+    justify-content: space-between;
+  }
+  .workspace-cards-container {
+    grid-row-start: 2;
+  }
 }

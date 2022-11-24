@@ -80,6 +80,12 @@
         height: 18px;
         color: variables.$color-primary;
       }
+
+      .search-input {
+        border: none;
+        width: 80%;
+        padding-right: 10px;
+      }
     }
   }
 

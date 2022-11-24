@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./SideNavBar.styles.scss";
 import {
   BsFillPlusSquareFill,
@@ -6,13 +7,20 @@ import {
   BsHouse,
   BsCheckSquare,
   BsTrophy,
-  BsThreeDots,
   BsFillCircleFill,
 } from "react-icons/bs";
 
 import { MdOutlinePeople } from "react-icons/md";
+import DropMenu from "../DropMenu/DropMenu.component";
 
 const SideNavBar = () => {
+  const [theme, setTheme] = useState("light");
+
+  const handleThemeChange = () => {
+    console.log(theme);
+    return theme === "light" ? setTheme("dark") : setTheme("light");
+  };
+
   return (
     <div className="side-navbar-container">
       <div className="navigation-container">
@@ -43,8 +51,9 @@ const SideNavBar = () => {
         <div className="workspace-item-container">
           <BsFillCircleFill className="workspace-item-circle" />
           <h4>Website Design</h4>
-
-          <BsThreeDots className="option-button" />
+          <div className="drop-menu">
+            <DropMenu />
+          </div>
         </div>
 
         <div className="workspace-item-container">
@@ -53,12 +62,24 @@ const SideNavBar = () => {
         </div>
       </div>
 
-      <div className="toggle-mode-container">
-        <div className="dark-mode-container">
+      <div className="toggle-mode-container" onClick={handleThemeChange}>
+        <div
+          className={`${
+            theme === "dark"
+              ? "dark-mode-container selected"
+              : "dark-mode-container"
+          }`}
+        >
           <BsMoon className="dark-logo" />
           <span>Dark</span>
         </div>
-        <div className="light-mode-container selected">
+        <div
+          className={`${
+            theme === "light"
+              ? "light-mode-container selected"
+              : "light-mode-container"
+          }`}
+        >
           <BsSun className="light-logo" />
           <span>Light</span>
         </div>

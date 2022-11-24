@@ -1,74 +1,94 @@
 {
   "sections": [
-    { "name": "TODO", "id": "1" },
-    { "name": "IN PROGRESS", "id": "2" },
-    { "name": "COMPLETE", "id": "3" },
-    { "name": "QUESTIONS", "id": "4" }
-  ],
-  "cards": [
     {
-      "title": "At vero eos et",
-      "description": "accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias",
-      "category": "research",
-      "section": "TODO",
-      "dueDate": "24 November",
-      "messages": "3",
-      "id": "5"
+      "name": "TODO",
+      "id": "1",
+      "cards": [
+        {
+          "title": "At vero eos et",
+          "description": "accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias",
+          "category": "research",
+          "dueDate": "24 November",
+          "messages": "3",
+          "id": "5"
+        },
+        {
+          "title": "necesbus saepe",
+          "description": " excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et h",
+          "category": "research",
+          "dueDate": "19 November",
+          "messages": "12",
+          "id": "6"
+        }
+      ]
     },
     {
-      "title": "necesbus saepe",
-      "description": " excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et h",
-      "category": "research",
-      "section": "TODO",
-      "dueDate": "19 November",
-      "messages": "12",
-      "id": "6"
-    },
-    {
-      "title": "sitati",
-      "description": "ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat",
-      "due Date": "24 November",
-      "messages": "3",
-      "category": "Development",
-      "section": "IN PROGRESS",
-      "id": "7"
-    },
-    {
-      "title": "impedit quo",
-      "description": "possimus, omnis voluptas assumenda",
-      "category": "UI Design",
-      "dueDate": "24 November",
-      "messages": "3",
-      "section": "IN PROGRESS",
-      "id": "8"
-    },
+      "name": "IN PROGRESS",
+      "id": "2",
+      "cards": [
+        {
+          "title": "sitati",
+          "description": "ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat",
+          "due Date": "24 November",
+          "messages": "3",
+          "category": "Development",
+          "id": "7"
+        },
+        {
+          "title": "impedit quo",
+          "description": "possimus, omnis voluptas assumenda",
+          "category": "UI Design",
+          "dueDate": "24 November",
+          "messages": "3",
+          "id": "8"
+        },
 
-    {
-      "title": "Nam libero tempor",
-      "description": "saepe eveniet ut et voluptates repudiandae sint et molestiae",
-      "category": "Planning",
-      "section": "IN PROGRESS",
-      "dueDate": "24 November",
-      "messages": "3",
-      "id": "9"
+        {
+          "title": "Nam libero tempor",
+          "description": "saepe eveniet ut et voluptates repudiandae sint et molestiae",
+          "category": "Planning",
+          "dueDate": "24 November",
+          "messages": "3",
+          "id": "9"
+        }
+      ]
     },
     {
-      "title": "omnis voluptas ",
-      "description": "sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-      "category": "UX Design",
-      "section": "COMPLETE",
-      "dueDate": "24 November",
-      "messages": "3",
-      "id": "10"
+      "name": "COMPLETE",
+      "id": "3",
+      "cards": [
+        {
+          "title": "omnis voluptas ",
+          "description": "sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+          "category": "UX Design",
+          "section": "COMPLETE",
+          "dueDate": "24 November",
+          "messages": "3",
+          "id": "10"
+        },
+        {
+          "title": "repudiandae sint ",
+          "description": "et molestiae soluta nobis est eligendi",
+          "category": "UX Writing",
+          "dueDate": "24 November",
+          "messages": "3",
+          "id": "11"
+        }
+      ]
     },
     {
-      "title": "repudiandae sint ",
-      "description": "et molestiae soluta nobis est eligendi",
-      "category": "UX Writing",
-      "section": "COMPLETE",
-      "dueDate": "24 November",
-      "messages": "3",
-      "id": "11"
+      "name": "QUESTIONS",
+      "id": "4",
+      "cards": [
+        {
+          "title": "reiciendis voluptat ",
+          "description": "aut reiciendis voluptatibus maiores alias consequatur aut perferendis dolo.",
+          "category": "UX Design",
+          "dueDate": "24 November",
+          "messages": "3",
+          "id": "12"
+        }
+      ]
     }
   ]
 }

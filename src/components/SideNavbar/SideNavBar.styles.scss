@@ -63,7 +63,12 @@
     .workspace-item-container {
       display: flex;
       align-items: center;
-
+      .drop-menu {
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 40px;
+        flex-grow: 1;
+      }
       .workspace-item-circle {
         width: 7.5px;
         height: 7.5px;
@@ -80,20 +85,6 @@
 
         &:hover {
           transform: scale(1.02);
-          color: variables.$workspace-color3;
-        }
-      }
-      .option-button {
-        cursor: pointer;
-
-        display: flex;
-        flex-grow: 1;
-        color: variables.$text-color-primary;
-
-        transition: 0.2s;
-
-        &:hover {
-          transform: scale(1.28);
           color: variables.$workspace-color3;
         }
       }
