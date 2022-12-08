@@ -1,95 +1,106 @@
-import { DragDropContext } from "react-beautiful-dnd";
-
+import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import { useState, useEffect, useRef } from "react";
 
-import Section from "./Section/Section.component";
-
+import Card from "./Card/Card.component";
+import DropMenu from "../../DropMenu/DropMenu.component";
 import "./Kanban.styles.scss";
 
 const Kanban = ({ cardData }) => {
   const [list, setList] = useState(cardData);
-  const [dragging, setDragging] = useState(false);
+  const [openOptions, setOpenOptions] = useState(false);
+  const [enabled, setEnabled] = useState(false);
 
+  // Enables use of Beautiful-dnd library without turning off strict-mode
   useEffect(() => {
-    setList(cardData);
-  }, [setList, cardData]);
+    const animation = requestAnimationFrame(() => setEnabled(true));
 
-  const dragCard = useRef();
-  const dragCardNode = useRef();
+    return () => {
+      cancelAnimationFrame(animation);
+      setEnabled(false);
+    };
+  }, []);
 
-  const handleDragStart = (e, card) => {
-    dragCardNode.current = e.target;
-    dragCardNode.current.addEventListener("dragend", handleDragEnd);
-    dragCard.current = card;
-
-    setTimeout(() => {
-      setDragging(true);
-    }, 0);
+  const handleOpenOptions = () => {
+    return openOptions ? setOpenOptions(false) : setOpenOptions(true);
   };
 
-  const handleDragEnter = (e, targetCard) => {
-    if (dragCardNode.current !== e.currentTarget) {
-      setList((oldList) => {
-        let newList = JSON.parse(JSON.stringify(oldList));
+  const onDragEnd = (result) => {
+    if (!result.destination) return;
+    const { source, destination } = result;
 
-        newList[targetCard.sectionIndex].cards.splice(
-          targetCard.cardIndex,
-          0,
-          newList[dragCard.current.sectionIndex].cards.splice(
-            dragCard.current.cardIndex,
-            1
-          )[0]
-        );
+    // if card is not in the same section where initially selected
+    if (source.droppableId !== destination.droppableId) {
+      const initialSection = list[source.droppableId]; // section start position
+      const destSection = list[destination.droppableId]; // section end position
+      const initialCards = [...initialSection.cards]; // initial position section cards
+      const destCards = [...destSection.cards]; // end position section destination cards
 
-        localStorage.setItem("List", JSON.stringify(newList));
+      const [removed] = initialCards.splice(source.index, 1); // value of the initial selected card
+      destCards.splice(destination.index, 0, removed); // add initial card to new destination
 
-        setTimeout(() => {
-          setDragging(false);
-        }, 0);
-        return newList;
+      // Set the updated list
+      setList({
+        ...list,
+        [source.droppableId]: { ...initialSection, cards: initialCards },
+        [destination.droppableId]: {
+          ...destSection,
+          cards: initialCards,
+        },
+      });
+    } else {
+      // If the card is in the same section where initially selected
+      const section = list[source.droppableId]; // initial section
+      const copiedCards = [...section.cards]; // sections card contents
+      const [removed] = copiedCards.splice(source.index, 1); // equal to removed card index
+      copiedCards.splice(destination.index, 0, removed); // insert removed card into updated section index
+
+      // Set the updated list
+      setList({
+        ...list,
+        [source.droppableId]: {
+          ...section,
+          cards: copiedCards,
+        },
       });
     }
   };
 
-  const handleDragEnd = (e) => {
-    setTimeout(() => {
-      setDragging(false);
-    }, 0);
-
-    dragCard.current = null;
-    dragCardNode.current.removeEventListener("dragend", handleDragEnd);
-    dragCardNode.current = null;
-  };
-
-  const getStyles = (card) => {
-    if (
-      dragCard.current.sectionIndex === card.sectionIndex &&
-      dragCard.current.cardIndex === card.cardIndex
-    ) {
-      return "current card";
-    }
-    return "card";
-  };
-
   return (
-    <DragDropContext>
-      <div className="kanban__container">
-        {list.map((section, sectionIndex) => {
-          return (
-            <Section
-              key={section.id}
-              sectionIndex={sectionIndex}
-              getStyles={getStyles}
-              isDragging={dragging}
-              section={section}
-              handleDragStart={handleDragStart}
-              handleDragEnter={handleDragEnter}
-              onDragEnter={(e) => handleDragEnter(e, { section, sectionIndex })}
-            />
-          );
-        })}
-      </div>
+    <DragDropContext onDragEnd={onDragEnd}>
+      {enabled ? (
+        <div className="kanban">
+          {list.map((section) => (
+            <Droppable key={section.id} droppableId={section.id}>
+              {(provided) => (
+                <section
+                  className="kanban__section"
+                  ref={provided.innerRef}
+                  {...provided.droppableProps}
+                >
+                  <div className="kanban__section__title">
+                    <h4>{section.name}</h4>
+                    <DropMenu onClick={handleOpenOptions} />
+                  </div>
+
+                  <div className="kanban__section__cards">
+                    {section.cards.map((card, index) => (
+                      <Card
+                        className="kanban__section__cards__card"
+                        key={card.id}
+                        card={card}
+                        index={index}
+                      />
+                    ))}
+                    {provided.placeholder}
+                  </div>
+                </section>
+              )}
+            </Droppable>
+          ))}
+        </div>
+      ) : null}
     </DragDropContext>
   );
 };
+
 export default Kanban;

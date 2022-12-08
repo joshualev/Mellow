@@ -1,6 +1,6 @@
 @use "../../../../utilities/variables.styles";
 
-.card {
+.kanban__section__cards__card {
   display: grid;
   grid-template-rows: 1fr 40px;
 
@@ -93,33 +93,6 @@
     &:hover {
       transform: scale(1.1);
       color: variables.$workspace-color3;
-    }
-  }
-}
-
-.current {
-  color: variables.$bkg-color-2;
-  text-shadow: none;
-  box-shadow: none;
-  border: 1px solid variables.$bkg-color-2;
-
-  &:hover {
-    transform: unset;
-    box-shadow: unset;
-  }
-
-  .card__upper {
-    border: none;
-    box-shadow: none;
-    .card__header {
-      color: variables.$bkg-color-2;
-    }
-
-    .card__section {
-      .card__category {
-        background-color: variables.$bkg-color-2;
-        color: variables.$bkg-color-2;
-      }
     }
   }
 }
