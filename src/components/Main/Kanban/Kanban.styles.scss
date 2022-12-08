@@ -1,0 +1,18 @@
+@use "../../../utilities/variables.styles";
+
+.kanban__container::-webkit-scrollbar {
+  display: none;
+}
+
+.kanban__container {
+  max-height: 600px;
+  overflow: scroll;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 10px;
+  grid-template-rows: 1fr;
+  gap: 15px;
+
+  padding-bottom: 10px;
+  padding-left: 10px;
+  border-bottom-right-radius: 20px;
+}

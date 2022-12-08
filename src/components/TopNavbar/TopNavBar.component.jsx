@@ -39,7 +39,7 @@ const TopNavBar = () => {
       <div className="search-container">
         <div className="search-box">
           <BsSearch className="search-icon" />
-          <input className="search-input" type="text" palceholder="Search" />
+          <input className="search-input" type="text" placeholder="Search" />
         </div>
       </div>
 

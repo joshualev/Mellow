@@ -11,7 +11,7 @@
 
     &:hover {
       transform: scale(1.2);
-      color: variables.$workspace-color3;
+      color: variables.$color-primary;
     }
   }
   .menu-item {
@@ -38,6 +38,7 @@
 
     border-radius: 5px;
     background-color: variables.$bkg-color-1;
+    opacity: 0.9;
 
     .menu-item {
       display: flex;

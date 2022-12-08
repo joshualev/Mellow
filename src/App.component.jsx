@@ -10,8 +10,6 @@ function App() {
   const [cardData, setCardData] = useState(null);
 
   useEffect(() => {
-    // console.log("effect fired");
-
     const boardData = async () => {
       try {
         const response = await fetch("http://localhost:5173/data.json");

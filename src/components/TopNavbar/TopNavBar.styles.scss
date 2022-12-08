@@ -62,7 +62,7 @@
       border: 1px solid variables.$border-color;
       display: flex;
       gap: 15px;
-      align-items: center;
+
       width: 162px;
       box-shadow: variables.$box-shadow-1;
 
@@ -85,6 +85,10 @@
         border: none;
         width: 80%;
         padding-right: 10px;
+      }
+
+      .search-input:focus {
+        outline: none;
       }
     }
   }

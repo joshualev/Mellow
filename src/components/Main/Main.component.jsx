@@ -1,9 +1,9 @@
-import Board from "./Board/Board.component";
+import Kanban from "./Kanban/Kanban.component";
 
 const Main = ({ cardData }) => {
   return (
     <div className="main-container">
-      <Board cardData={cardData} />
+      <Kanban cardData={cardData} />
     </div>
   );
 };
