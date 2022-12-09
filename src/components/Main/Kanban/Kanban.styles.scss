@@ -19,7 +19,6 @@
 
 .kanban__section {
   grid-row-start: 2;
-  min-width: 200px;
 
   .kanban__section__title {
     color: variables.$text-color-primary;
@@ -30,9 +29,5 @@
 
     display: flex;
     justify-content: space-between;
-  }
-
-  .kanban__section__cards {
-    grid-row-start: 2;
   }
 }

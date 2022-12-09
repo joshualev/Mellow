@@ -10,6 +10,7 @@ const Kanban = ({ cardData }) => {
   const [openOptions, setOpenOptions] = useState(false);
   const [enabled, setEnabled] = useState(false);
 
+  // ===============================================================
   // Enables use of Beautiful-dnd library without turning off strict-mode
   useEffect(() => {
     const animation = requestAnimationFrame(() => setEnabled(true));
@@ -19,49 +20,51 @@ const Kanban = ({ cardData }) => {
       setEnabled(false);
     };
   }, []);
+  // ===============================================================
 
   const handleOpenOptions = () => {
     return openOptions ? setOpenOptions(false) : setOpenOptions(true);
   };
 
-  const onDragEnd = (result) => {
+  const onDragEnd = (result, section) => {
     if (!result.destination) return;
     const { source, destination } = result;
 
     // if card is not in the same section where initially selected
     if (source.droppableId !== destination.droppableId) {
-      const initialSection = list[source.droppableId]; // section start position
-      const destSection = list[destination.droppableId]; // section end position
-      const initialCards = [...initialSection.cards]; // initial position section cards
-      const destCards = [...destSection.cards]; // end position section destination cards
+      // find the source column index
+      const sourceColIndex = list.findIndex((e) => e.id === source.droppableId);
+      // find the destination column index
+      const destinationColIndex = list.findIndex(
+        (e) => e.id === destination.droppableId
+      );
 
-      const [removed] = initialCards.splice(source.index, 1); // value of the initial selected card
-      destCards.splice(destination.index, 0, removed); // add initial card to new destination
+      const sourceCol = list[sourceColIndex]; // source column
+      const destinationCol = list[destinationColIndex]; // destination column
 
-      // Set the updated list
-      setList({
-        ...list,
-        [source.droppableId]: { ...initialSection, cards: initialCards },
-        [destination.droppableId]: {
-          ...destSection,
-          cards: initialCards,
-        },
-      });
+      const sourceCard = [...sourceCol.cards]; // index of source card position in source column
+      const destinationCard = [...destinationCol.cards]; // index of card position in destination column
+
+      const [removed] = sourceCard.splice(source.index, 1); // selected card to be removed from source column
+      destinationCard.splice(destination.index, 0, removed); // selected card to be added to destination column
+
+      list[sourceColIndex].cards = sourceCard; // updated source column cards
+      list[destinationColIndex].cards = destinationCard; // updated destination column cards
+
+      setList(list); // set updated list values
     } else {
-      // If the card is in the same section where initially selected
-      const section = list[source.droppableId]; // initial section
-      const copiedCards = [...section.cards]; // sections card contents
-      const [removed] = copiedCards.splice(source.index, 1); // equal to removed card index
-      copiedCards.splice(destination.index, 0, removed); // insert removed card into updated section index
+      // SAME COLUMN
+      // re-order cards in column according to new card destination
+      const sourceColIndex = list.findIndex((e) => e.id === source.droppableId);
 
-      // Set the updated list
-      setList({
-        ...list,
-        [source.droppableId]: {
-          ...section,
-          cards: copiedCards,
-        },
-      });
+      const column = list[source.droppableId - 1]; // column
+      const copiedCards = [...column.cards]; // column cards
+      const [removed] = copiedCards.splice(source.index, 1); // remove source card from initial column position
+      copiedCards.splice(destination.index, 0, removed); // add selected card to new position in column
+
+      list[sourceColIndex].cards = copiedCards; // updated column cards
+
+      setList(list); // set updated list values
     }
   };
 

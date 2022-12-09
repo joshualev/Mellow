@@ -12,6 +12,8 @@
   background-color: #ffffff;
   box-shadow: variables.$box-shadow-1;
 
+  user-select: none;
+
   .top-navbar-container {
     grid-column-start: 1;
     grid-column-end: 6;

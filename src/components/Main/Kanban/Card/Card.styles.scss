@@ -15,8 +15,6 @@
   border-radius: 6px;
   box-shadow: variables.$box-shadow-1;
 
-  transition: 0.25s ease-out;
-
   &:hover {
     cursor: pointer;
     transform: rotate(0.1deg) translate(1px, -1px);
