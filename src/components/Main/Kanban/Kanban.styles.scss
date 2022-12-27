@@ -7,6 +7,7 @@
 .kanban {
   max-height: 600px;
   overflow: scroll;
+
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 10px;
   grid-template-rows: 1fr;
@@ -17,9 +18,66 @@
   border-bottom-right-radius: 20px;
 }
 
-.kanban__section {
-  grid-row-start: 2;
+.list {
+  max-height: 600px;
+  overflow: scroll;
 
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  padding-bottom: 10px;
+  padding-left: 10px;
+  border-bottom-right-radius: 20px;
+}
+
+.list__section {
+  .kanban__section__title {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+
+    color: variables.$text-color-primary;
+    background-color: variables.$bkg-color-2;
+    border-bottom: 5px solid variables.$workspace-color4;
+
+    width: 500px;
+  }
+
+  .kanban__create__card {
+    max-width: 250px;
+    text-align: center;
+
+    margin: 10px 0 0 0;
+
+    color: variables.$text-color-secondary;
+
+    background-color: variables.$bkg-color-2;
+    border: 1px solid variables.$border-color;
+    border-radius: 6px;
+    box-shadow: variables.$box-shadow-2;
+
+    transition: 0.2s;
+
+    &:hover {
+      cursor: pointer;
+      transform: translate(0, -1px);
+      box-shadow: variables.$box-shadow-1;
+
+      color: variables.$color-primary;
+    }
+  }
+
+  .kanban__section__cards {
+    display: flex;
+    gap: 15px;
+  }
+  .kanban__section__cards__card {
+    max-width: 250px;
+  }
+}
+
+.kanban__section {
   .kanban__section__title {
     color: variables.$text-color-primary;
     background-color: variables.$bkg-color-2;
@@ -29,5 +87,33 @@
 
     display: flex;
     justify-content: space-between;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .kanban__create__card {
+    min-width: 200px;
+    text-align: center;
+
+    margin: 10px 0;
+
+    color: variables.$text-color-secondary;
+
+    background-color: variables.$bkg-color-2;
+    border: 1px solid variables.$border-color;
+    border-radius: 6px;
+    box-shadow: variables.$box-shadow-2;
+
+    transition: 0.2s;
+
+    &:hover {
+      cursor: pointer;
+      transform: translate(0, -1px);
+      box-shadow: variables.$box-shadow-1;
+
+      color: variables.$color-primary;
+    }
   }
 }

@@ -43,6 +43,10 @@
         color: variables.$workspace-color3;
       }
     }
+
+    .nav-item:nth-child(3) {
+      margin-right: 20px;
+    }
     .navlink-logo {
       position: relative;
       top: 3px;
@@ -55,19 +59,18 @@
   .search-container {
     display: flex;
     justify-content: flex-end;
-
+    width: 100%;
     .search-box {
       cursor: pointer;
 
-      border: 1px solid variables.$border-color;
       display: flex;
-      gap: 15px;
+      gap: 10px;
+      width: 80%;
+      padding: 1rem;
 
-      width: 162px;
+      border: 1px solid variables.$border-color;
       box-shadow: variables.$box-shadow-1;
-
-      padding: 0.5rem;
-      border-radius: 20px;
+      border-radius: 8px;
 
       transition: 0.1s;
 
@@ -83,7 +86,7 @@
 
       .search-input {
         border: none;
-        width: 80%;
+        width: 90%;
         padding-right: 10px;
       }
 

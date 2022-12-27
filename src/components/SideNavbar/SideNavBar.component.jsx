@@ -1,5 +1,9 @@
-import { useState } from "react";
-import "./SideNavBar.styles.scss";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleTheme } from "../../features/theme/themeSlice";
+
+import DropMenu from "../DropMenu/DropMenu.component";
+
+import { MdOutlinePeople } from "react-icons/md";
 import {
   BsFillPlusSquareFill,
   BsMoon,
@@ -10,16 +14,11 @@ import {
   BsFillCircleFill,
 } from "react-icons/bs";
 
-import { MdOutlinePeople } from "react-icons/md";
-import DropMenu from "../DropMenu/DropMenu.component";
+import "./SideNavBar.styles.scss";
 
 const SideNavBar = () => {
-  const [theme, setTheme] = useState("light");
-
-  const handleThemeChange = () => {
-    console.log(theme);
-    return theme === "light" ? setTheme("dark") : setTheme("light");
-  };
+  const { theme } = useSelector((state) => state.theme);
+  const dispatch = useDispatch();
 
   return (
     <div className="side-navbar-container">
@@ -62,8 +61,11 @@ const SideNavBar = () => {
         </div>
       </div>
 
-      <div className="toggle-mode-container" onClick={handleThemeChange}>
+      <div className="toggle-mode-container">
         <div
+          onClick={(e) => {
+            dispatch(toggleTheme("dark"));
+          }}
           className={`${
             theme === "dark"
               ? "dark-mode-container selected"
@@ -74,6 +76,9 @@ const SideNavBar = () => {
           <span>Dark</span>
         </div>
         <div
+          onClick={(e) => {
+            dispatch(toggleTheme("light"));
+          }}
           className={`${
             theme === "light"
               ? "light-mode-container selected"

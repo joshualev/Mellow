@@ -1,0 +1,30 @@
+@use "../../../utilities/variables.styles";
+// .create__card__container {
+// }
+
+.create__card-title {
+  grid-row-start: 1;
+  font-size: 0.9rem;
+  color: variables.$text-color-primary;
+  margin-top: 0px;
+}
+
+.create__card__form {
+  grid-row-start: 2;
+
+  display: grid;
+  grid-template-columns: 1fr 5fr 10px;
+  row-gap: 30px;
+
+  font-size: 1.2rem;
+
+  label {
+    grid-column-start: 1;
+  }
+
+  input,
+  select,
+  option {
+    width: 250px;
+  }
+}

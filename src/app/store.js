@@ -1,12 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
-import thumbsUpSlice from "../features/thumbsUp/thumbsUpSlice";
 
-export default configureStore({
+import counterReducer from "../features/counter/counterSlice";
+import sectionsReducer from "../features/sections/sectionsSlice";
+import themeReducer from "../features/theme/themeSlice";
+import viewReducer from "../features/view/viewSlice";
+export const store = configureStore({
   reducer: {
-    //section and card store
-    //dark mode
-    //likes
-    //comments
-    //authentication
+    counter: counterReducer,
+    sectionsData: sectionsReducer,
+    theme: themeReducer,
+    view: viewReducer,
   },
 });

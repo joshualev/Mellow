@@ -1,9 +1,10 @@
 import Kanban from "./Kanban/Kanban.component";
-
-const Main = ({ cardData }) => {
+import CreateCard from "./CreateCard/CreateCard.component";
+const Main = ({ listView }) => {
   return (
     <div className="main-container">
-      <Kanban cardData={cardData} />
+      <Kanban />
+      {/* <CreateCard /> */}
     </div>
   );
 };
